@@ -59,6 +59,7 @@
 		while($anu = mysql_fetch_array($exe));
 		{
 			$jumlahStok++;
+			
 		}
 		
 		// Perintah untuk mengupdate stok berdasar jumlah yang didapat sebelumnya
@@ -92,7 +93,7 @@
 		}
 	}
 	header("location:$lokasi.php?notif=$syaratNotif");
-
+	
 			/*
 			echo $_FILES["uploadMusic"]["name"] . "<br>";
 			echo $_FILES["uploadMusic"]["size"] . "<br>";
