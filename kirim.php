@@ -56,10 +56,9 @@
 		$sql_select = "SELECT * FROM barang WHERE id_jenis = '$jenis'";
 		$jumlahStok = 1;
 		$exe = mysql_query($sql_select);
-		while($anu = mysql_fetch_array($exe));
+		while(mysql_fetch_array($exe))
 		{
 			$jumlahStok++;
-			
 		}
 		
 		// Perintah untuk mengupdate stok berdasar jumlah yang didapat sebelumnya

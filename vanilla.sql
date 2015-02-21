@@ -1,0 +1,124 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.9
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Feb 21, 2015 at 12:00 PM
+-- Server version: 5.5.34
+-- PHP Version: 5.4.22
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `vanilla`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `barang`
+--
+
+CREATE TABLE IF NOT EXISTS `barang` (
+  `id_barang` varchar(7) NOT NULL,
+  `id_jenis` varchar(7) DEFAULT NULL,
+  `nama_barang` varchar(50) DEFAULT NULL,
+  `path` varchar(100) DEFAULT NULL,
+  `id_merek` varchar(7) DEFAULT NULL,
+  PRIMARY KEY (`id_barang`),
+  KEY `fk_jenis` (`id_jenis`),
+  KEY `fk_merek` (`id_merek`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `barang`
+--
+
+INSERT INTO `barang` (`id_barang`, `id_jenis`, `nama_barang`, `path`, `id_merek`) VALUES
+('br001', 'jn001', 'lifebuoy merah', 'gambar/anu.jpg', 'mrk001'),
+('br002', 'jn001', 'Dove Susu', 'gambar/b.jpg', 'mrk002'),
+('br003', 'jn002', 'Ransel Fifa Keren', 'gambar/ransel.jpg', 'mrk003'),
+('br004', 'jn002', 'Tas Gahol', 'gambar/holebrain.jpg', 'mrk003');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jenis`
+--
+
+CREATE TABLE IF NOT EXISTS `jenis` (
+  `id_jenis` varchar(7) NOT NULL,
+  `nama_jenis` varchar(50) DEFAULT NULL,
+  `stok` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_jenis`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jenis`
+--
+
+INSERT INTO `jenis` (`id_jenis`, `nama_jenis`, `stok`) VALUES
+('jn001', 'alat mandi', 2),
+('jn002', 'tas', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE IF NOT EXISTS `login` (
+  `username` varchar(30) NOT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`username`, `password`) VALUES
+('admin', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `merek`
+--
+
+CREATE TABLE IF NOT EXISTS `merek` (
+  `id_merek` varchar(7) NOT NULL,
+  `nama_merek` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_merek`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `merek`
+--
+
+INSERT INTO `merek` (`id_merek`, `nama_merek`) VALUES
+('mrk001', 'lifebuoy'),
+('mrk002', 'Dove'),
+('mrk003', 'Fifa');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `barang`
+--
+ALTER TABLE `barang`
+  ADD CONSTRAINT `fk_jenis` FOREIGN KEY (`id_jenis`) REFERENCES `jenis` (`id_jenis`),
+  ADD CONSTRAINT `fk_merek` FOREIGN KEY (`id_merek`) REFERENCES `merek` (`id_merek`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -22,6 +22,20 @@
 		$path = addslashes($hasil['path']);
 		unlink("../$path");
 		echo "selamat";
+		
+		
+		// Bagian untuk mengetahui jumlah barang dengan id_jenis tertentu		
+		$sql_select = "SELECT * FROM barang WHERE id_jenis = '$hasil[1]'";
+		$jumlahStok = -1;
+		$exe = mysql_query($sql_select);
+		while(mysql_fetch_array($exe))
+		{
+			$jumlahStok++;
+		}
+		
+		// Perintah untuk mengupdate stok berdasar jumlah yang didapat sebelumnya
+		$sql_update = "UPDATE jenis SET stok = '$jumlahStok' WHERE id_jenis = '$hasil[1]'";
+		mysql_query($sql_update);
 	}
 	else						// Hapus tabel playlist
 	{
