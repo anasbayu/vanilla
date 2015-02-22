@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2015 at 01:28 PM
+-- Generation Time: Feb 22, 2015 at 01:33 PM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -47,8 +47,7 @@ INSERT INTO `barang` (`id_barang`, `id_jenis`, `nama_barang`, `path`, `id_merek`
 ('br002', 'jn001', 'Dove Susu', 'gambar/b.jpg', 'mrk002', 'Deskripsi 2'),
 ('br003', 'jn002', 'Ransel Fifa Keren', 'gambar/ransel.jpg', 'mrk003', 'Deskripsi 3'),
 ('br004', 'jn002', 'Tas Gahol', 'gambar/holebrain.jpg', 'mrk003', 'Deskripsi 4'),
-('br005', 'jn001', 'aaaa', 'gambar/1.jpg', 'mrk001', 'dada'),
-('br006', 'jn002', 'bbbb', 'gambar/15 kid et asked about marriage.jpg', 'mrk002', 'ada');
+('br005', 'jn001', 'aaaa', 'gambar/1.jpg', 'mrk001', 'dada');
 
 -- --------------------------------------------------------
 
@@ -69,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `jenis` (
 
 INSERT INTO `jenis` (`id_jenis`, `nama_jenis`, `stok`) VALUES
 ('jn001', 'alat mandi', 3),
-('jn002', 'tas', 3);
+('jn002', 'tas', 2);
 
 -- --------------------------------------------------------
 
