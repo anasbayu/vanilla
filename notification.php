@@ -41,6 +41,7 @@
 								<li>File musik harus memiliki format .png atau .jpg.</li>
 								<li>File harus berukuran kurang dari 5mb.</li>
 								<li>Nama file tidak boleh melebihi 50 karakter.</li>
+								<li>File gambar dengan nama yang sama telah diupload sebelumnya.</li>
 							</ul></h5>
 						 ";
 			}
@@ -64,7 +65,7 @@
 			}
 			else if($notif == 7)			// Berhasil hapus dari tabel barang (database)
 			{
-				$lokasi = "index";
+				$lokasi = "admin/dashboard";
 				$header = "<h2>Selamat!</h2>";
 				$pesan = "
 							<h4>Barang telah berhasil dihapus dari database.</h4>

@@ -36,7 +36,7 @@
 					}
 				?>
 			</select>
-			
+			<br>
 			<!--MEREK BARANG-->
 			<select name="merek_barang">
 				<option value="">Merek barang</option>
@@ -50,6 +50,7 @@
 					}
 				?>
 			</select><br>
+			<textarea name="deskripsi" placeholder="deskripsi barang" required></textarea><br>
 			<input class="file" type="file" name="gambar" id="gambar" required/><br>
 			<button type="submit" name="submit" id="submit">Upload</button>
 		</form>

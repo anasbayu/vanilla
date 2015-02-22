@@ -1,9 +1,10 @@
 <?php
 	session_start();
 	
-	error_reporting(0);
+	//error_reporting(0);
 	include "include/koneksi.php";
-			
+	include "include/fungsi.php";
+	
 	$kodenya = $_GET['kode'];
 	$syarat = $_GET['syarat'];	
 	$syaratNotif;		// Menyimpan syarat untuk pesan notifikasi pada notification.php
@@ -47,19 +48,13 @@
 		$merek = $_POST['merek_barang'];
 		$gambar = $_FILES['gambar'];
 		$path = mysql_real_escape_string("gambar/" . $gambar["name"]);
-
+		$deskripsi = addslashes($_POST['deskripsi']);
+		
 		// Perintah untuk memasukkan data dari form ke database
 		$sql_masukin = "INSERT INTO barang 
-						VALUES ('$idBarang', '$jenis', '$namaBarang', '$path', '$merek')";
+						VALUES ('$idBarang', '$jenis', '$namaBarang', '$path', '$merek', '$deskripsi')";
 		
-		// Bagian untuk mengetahui jumlah barang dengan id_jenis tertentu		
-		$sql_select = "SELECT * FROM barang WHERE id_jenis = '$jenis'";
-		$jumlahStok = 1;
-		$exe = mysql_query($sql_select);
-		while(mysql_fetch_array($exe))
-		{
-			$jumlahStok++;
-		}
+		$jumlahStok = jumlah($jenis, 'jenis', 'insert');
 		
 		// Perintah untuk mengupdate stok berdasar jumlah yang didapat sebelumnya
 		$sql_update = "UPDATE jenis SET stok = '$jumlahStok' WHERE id_jenis = '$jenis'";
@@ -69,6 +64,7 @@
 			if(file_exists("gambar/" . $gambar["name"]))
 			{
 				echo "File sudah ada!";
+				$syaratNotif = 4;	
 			}
 			else
 			{
@@ -80,8 +76,8 @@
 				{
 					move_uploaded_file($gambar["tmp_name"], "gambar/" . $gambar["name"]);
 					//echo "disimpan di " . "gambar" . $gambar["name"];		
-					mysql_query($sql_masukin) or die('Gagal masukin'.mysql_error());	// Insert tabel barang
-					mysql_query($sql_update) or die('Gagal update'.mysql_error());		// Update tabel jenis
+					mysql_query($sql_masukin) or die('Gagal masukin '.mysql_error());	// Insert tabel barang
+					mysql_query($sql_update) or die('Gagal update '.mysql_error());		// Update tabel jenis
 				}
 				else
 				{	

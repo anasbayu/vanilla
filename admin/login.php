@@ -14,6 +14,7 @@
 	if ($jumlah > 0) 
 	{
 		$_SESSION['username'] = $username;
+		$_SESSION['level'] = $data[level];
 		header("location:dashboard.php");
 	} 
 	else 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2015 at 12:00 PM
+-- Generation Time: Feb 22, 2015 at 01:28 PM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `barang` (
   `nama_barang` varchar(50) DEFAULT NULL,
   `path` varchar(100) DEFAULT NULL,
   `id_merek` varchar(7) DEFAULT NULL,
+  `deskripsi` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id_barang`),
   KEY `fk_jenis` (`id_jenis`),
   KEY `fk_merek` (`id_merek`)
@@ -41,11 +42,13 @@ CREATE TABLE IF NOT EXISTS `barang` (
 -- Dumping data for table `barang`
 --
 
-INSERT INTO `barang` (`id_barang`, `id_jenis`, `nama_barang`, `path`, `id_merek`) VALUES
-('br001', 'jn001', 'lifebuoy merah', 'gambar/anu.jpg', 'mrk001'),
-('br002', 'jn001', 'Dove Susu', 'gambar/b.jpg', 'mrk002'),
-('br003', 'jn002', 'Ransel Fifa Keren', 'gambar/ransel.jpg', 'mrk003'),
-('br004', 'jn002', 'Tas Gahol', 'gambar/holebrain.jpg', 'mrk003');
+INSERT INTO `barang` (`id_barang`, `id_jenis`, `nama_barang`, `path`, `id_merek`, `deskripsi`) VALUES
+('br001', 'jn001', 'lifebuoy merah', 'gambar/anu.jpg', 'mrk001', 'Deskripsi 1'),
+('br002', 'jn001', 'Dove Susu', 'gambar/b.jpg', 'mrk002', 'Deskripsi 2'),
+('br003', 'jn002', 'Ransel Fifa Keren', 'gambar/ransel.jpg', 'mrk003', 'Deskripsi 3'),
+('br004', 'jn002', 'Tas Gahol', 'gambar/holebrain.jpg', 'mrk003', 'Deskripsi 4'),
+('br005', 'jn001', 'aaaa', 'gambar/1.jpg', 'mrk001', 'dada'),
+('br006', 'jn002', 'bbbb', 'gambar/15 kid et asked about marriage.jpg', 'mrk002', 'ada');
 
 -- --------------------------------------------------------
 
@@ -65,8 +68,8 @@ CREATE TABLE IF NOT EXISTS `jenis` (
 --
 
 INSERT INTO `jenis` (`id_jenis`, `nama_jenis`, `stok`) VALUES
-('jn001', 'alat mandi', 2),
-('jn002', 'tas', 2);
+('jn001', 'alat mandi', 3),
+('jn002', 'tas', 3);
 
 -- --------------------------------------------------------
 
@@ -77,6 +80,7 @@ INSERT INTO `jenis` (`id_jenis`, `nama_jenis`, `stok`) VALUES
 CREATE TABLE IF NOT EXISTS `login` (
   `username` varchar(30) NOT NULL,
   `password` varchar(50) DEFAULT NULL,
+  `level` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -84,8 +88,9 @@ CREATE TABLE IF NOT EXISTS `login` (
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`username`, `password`) VALUES
-('admin', 'admin');
+INSERT INTO `login` (`username`, `password`, `level`) VALUES
+('admin', 'admin', 'admin'),
+('user', 'user', 'user');
 
 -- --------------------------------------------------------
 
