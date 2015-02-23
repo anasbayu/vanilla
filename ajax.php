@@ -1,5 +1,6 @@
 <?php
 	include "include/koneksi.php";
+	include "include/fungsi.php";
 	
 	// Menampilkan info catalog
 		
@@ -10,8 +11,8 @@
 		
 		while($hasilGambar = mysql_fetch_array($exe2))
 		{	
-			echo "<img src='$hasilGambar[3]'/><br>";
-			echo "Nama : $hasilGambar[2]<br>" . "Jenis : $hasilGambar[6]<br>" . "Merek : $hasilGambar[9]<br>" . "Stok : $hasilGambar[7]<br>";
+			echo "<img src='$hasilGambar[path]'/><br>";
+			echo "Nama : $hasilGambar[nama_barang]<br>" . "Jenis : $hasilGambar[nama_jenis]<br>" . "Merek : $hasilGambar[nama_merek]<br>";
 		}
 	echo "uwaw";
 ?>

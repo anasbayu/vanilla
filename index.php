@@ -3,7 +3,7 @@
 ?>
 
 <form method="post" action="index.php">
-	<select name="jenisBarang" onchange="ajax(this.value)">
+	<select name="jenisBarang" onchange="send(this.value)">
 		<option value="">Jenis</option>
 		<?php
 			$query = "SELECT * FROM jenis";
@@ -32,8 +32,6 @@
 		?>
 	</select>
 	-->
-	
-	<button type="submit">submit</button>
 </form>
 
 <div id="catalog">	
@@ -54,26 +52,12 @@
 		}
 	?>
 </div>
-<div id="catalog2">aaaaaa</div>	
-	
+<div id="ajax">aaaaaa</div>	
+
+<script src="js/jquery-2.1.3.min.js"></script>
 <script>
-	function ajax(str)
+	function send(val)
 	{
-		if(str="")
-		{
-			document.getElementById("catalog2").innerHTML = "BBBBBBBBBBBB";
-			return;
-		}
-		
-		var xhr = new XMLHttpRequest();
-		xhr.onreadystatechange = function(){
-			if(xhr.readystate === 4)
-			{
-				document.getElementById("catalog2").innerHTML = "adaw";
-			}
-		};
-		xhr.open('GET', 'ajax.php?id=' + str, true);
-		xhr.send();
-		//document.getElementById("catalog2").innerHTML = "a";
+		$('#ajax').load("ajax.php?id=" + val);
 	}
 </script>
