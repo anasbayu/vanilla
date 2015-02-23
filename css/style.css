@@ -1,0 +1,57 @@
+/* Page Styles
+================================ */
+
+* {
+	-mox-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	font: normal 1.0em/1.5 sans-serif;
+	background-color: #FFBEE8;
+}
+
+/* Element Colors
+================================ */
+
+.main-header			{ background-color: #750085; }
+.main-nav				{}
+.main-nav li 			{ background-color: #A9A9A9; }
+.item						{ background-color: #C8C8C8; }
+
+/* Layout Styles
+================================ */
+
+.main-header {
+}
+
+.main-nav {
+}
+	.main-nav li {
+	}
+	.main-nav li:nth-child(n+3) {
+		float: right;
+		text-align: right;
+	}
+	.main-nav li:empty {
+		display: none;
+	}
+		.main-nav a {
+			text-decoration: none;
+			color: #F9F9F9;
+		}
+
+.main-content {
+}
+	.item {
+		width: 30%;
+		min-height: 200px;
+		margin-top: 25px;
+		margin-left: 2.5%;
+		border-radius: 5px;
+		display: inline-block;
+	}
+	.item:last-child {
+		margin-bottom: 25px;
+	}
