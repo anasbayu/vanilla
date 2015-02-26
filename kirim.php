@@ -49,10 +49,11 @@
 		$gambar = $_FILES['gambar'];
 		$path = mysql_real_escape_string("gambar/" . $gambar["name"]);
 		$deskripsi = addslashes($_POST['deskripsi']);
+		$harga = addslashes($_POST['harga']);
 		
 		// Perintah untuk memasukkan data dari form ke database
 		$sql_masukin = "INSERT INTO barang 
-						VALUES ('$idBarang', '$jenis', '$namaBarang', '$path', '$merek', '$deskripsi')";
+						VALUES ('$idBarang', '$jenis', '$namaBarang', '$path', '$merek', '$deskripsi', '$harga')";
 		
 		$jumlahStok = jumlah($jenis, 'jenis', 'insert');
 		

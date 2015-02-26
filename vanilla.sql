@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2015 at 01:33 PM
+-- Generation Time: Feb 26, 2015 at 02:41 PM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `barang` (
   `path` varchar(100) DEFAULT NULL,
   `id_merek` varchar(7) DEFAULT NULL,
   `deskripsi` varchar(500) DEFAULT NULL,
+  `harga` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id_barang`),
   KEY `fk_jenis` (`id_jenis`),
   KEY `fk_merek` (`id_merek`)
@@ -42,12 +43,16 @@ CREATE TABLE IF NOT EXISTS `barang` (
 -- Dumping data for table `barang`
 --
 
-INSERT INTO `barang` (`id_barang`, `id_jenis`, `nama_barang`, `path`, `id_merek`, `deskripsi`) VALUES
-('br001', 'jn001', 'lifebuoy merah', 'gambar/anu.jpg', 'mrk001', 'Deskripsi 1'),
-('br002', 'jn001', 'Dove Susu', 'gambar/b.jpg', 'mrk002', 'Deskripsi 2'),
-('br003', 'jn002', 'Ransel Fifa Keren', 'gambar/ransel.jpg', 'mrk003', 'Deskripsi 3'),
-('br004', 'jn002', 'Tas Gahol', 'gambar/holebrain.jpg', 'mrk003', 'Deskripsi 4'),
-('br005', 'jn001', 'aaaa', 'gambar/1.jpg', 'mrk001', 'dada');
+INSERT INTO `barang` (`id_barang`, `id_jenis`, `nama_barang`, `path`, `id_merek`, `deskripsi`, `harga`) VALUES
+('br001', 'jn001', 'lifebuoy merah', 'gambar/anu.jpg', 'mrk001', 'Deskripsi 1', '10.000'),
+('br002', 'jn001', 'Dove Susu', 'gambar/b.jpg', 'mrk002', 'Deskripsi 2', '10.000'),
+('br003', 'jn002', 'Ransel Fifa Keren', 'gambar/ransel.jpg', 'mrk003', 'Deskripsi 3', '10.000'),
+('br004', 'jn002', 'Tas Gahol', 'gambar/holebrain.jpg', 'mrk003', 'Deskripsi 4', '10.000'),
+('br005', 'jn001', 'aaaa', 'gambar/1.jpg', 'mrk001', 'dada', '10.000'),
+('br007', 'jn001', 'barang 7', 'gambar/a moment before freedom.jpg', 'mrk002', 'dawd/./3.2/12.4/3fwef/./', '100.000'),
+('br008', 'jn001', 'barang 8', 'gambar/1203.png', 'mrk001', 'dook9021i1298*(*&^*W(@*@', '5555'),
+('br009', 'jn001', 'barang 9', 'gambar/Zephyrus.jpg', 'mrk003', 'jfiwo3fj', '899'),
+('br010', 'jn001', 'barang 10', 'gambar/when the earth meet the sky, bolivia.jpg', 'mrk001', '}{)_()*#(&^&%%$@||P@OI*&JDKJ', '787');
 
 -- --------------------------------------------------------
 
@@ -67,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `jenis` (
 --
 
 INSERT INTO `jenis` (`id_jenis`, `nama_jenis`, `stok`) VALUES
-('jn001', 'alat mandi', 3),
+('jn001', 'alat mandi', 7),
 ('jn002', 'tas', 2);
 
 -- --------------------------------------------------------

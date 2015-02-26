@@ -52,6 +52,7 @@
 			</select><br>
 			<textarea name="deskripsi" placeholder="deskripsi barang" required></textarea><br>
 			<input class="file" type="file" name="gambar" id="gambar" required/><br>
+			<input type="text" name="harga" id="harga" placeholder="harga barang" maxlength="10" required/><br>
 			<button type="submit" name="submit" id="submit">Upload</button>
 		</form>
 	</body>
