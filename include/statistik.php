@@ -4,28 +4,56 @@
 
 <h3>Statistik</h3><hr>
 		Daftar merek
-		<ol>
-			<?php
-				$queryMerek = "SELECT * FROM merek";
-				$exe = mysql_query($queryMerek);
-				while($hasilMerek = mysql_fetch_array($exe))
-				{
-					echo "<li>$hasilMerek[nama_merek] (" . jumlah($hasilMerek['id_merek'], 'merek', 'none') . ")</li>";
-				}
-			?>
-		</ol>
+		<table border=1>
+			<thead>
+				<th>No</th>
+				<th>Merek</th>
+				<th>Kuantitas</th>
+			</thead>
+			<tbody>
+				<?php
+					$no = 1;
+					$queryMerek = "SELECT * FROM merek";
+					$exe = mysql_query($queryMerek);
+					while($hasilMerek = mysql_fetch_array($exe))
+					{
+						echo "<tr>
+								<td>$no</td>
+								<td>$hasilMerek[nama_merek]</td>
+								<td>" . jumlah($hasilMerek['id_merek'], 'merek', 'none') . "</td>
+							  </tr>
+							 ";
+						$no++;
+					}
+				?>
+			</tbody>
+		</table>
 		<hr>
 		Daftar jenis
-		<ol>
-			<?php
-				$queryJenis = "SELECT * FROM jenis";
-				$exeJenis = mysql_query($queryJenis);
-				while($hasilJenis = mysql_fetch_array($exeJenis))
-				{
-					echo "<li>$hasilJenis[nama_jenis] (" . jumlah($hasilJenis['id_jenis'], 'jenis', 'none') . ")</li>";
-				}
-			?>
-		</ol>
+		<table border=1>
+			<thead>
+				<th>No</th>
+				<th>Jenis</th>
+				<th>Kuantitas</th>
+			</thead>
+			<tbody>
+				<?php
+					$no = 1;
+					$queryJenis = "SELECT * FROM jenis";
+					$exeJenis = mysql_query($queryJenis);
+					while($hasilJenis = mysql_fetch_array($exeJenis))
+					{
+						echo "<tr>
+								<td>$no</td>
+								<td>$hasilJenis[nama_jenis]</td>
+								<td>" . jumlah($hasilJenis['id_jenis'], 'jenis', 'none') . "</td>
+							  </tr>
+							 ";
+						$no++;
+					}
+				?>
+			</tbody>
+		</table>
 		<hr>
 		Daftar Barang
 		<?php lihatSemuaBarang('tampil'); ?>

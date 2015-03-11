@@ -4,10 +4,15 @@
 	*Fungsi dapat digunakan sebagai beragam jenis (tergantung mode)
 	===================================================================================================*/
 
-	// Bagian untuk mengetahui jumlah barang dengan id_* tertentu		
+	// Bagian untuk mengetahui jumlah barang dengan id_* tertentu
 	function jumlah($merek, $kolom, $mode)		//$merek = identifier, $kolom = nama kolom, $mode = none -> tampil, insert -> tambah (untuk upload)
 	{
 		$sql_select = "SELECT * FROM barang WHERE id_$kolom = '$merek'";
+		if($merek === "all")		// Untuk penampilan default
+		{
+			$sql_select = "SELECT * FROM barang";
+		}
+
 		if($mode === "insert")	// Jika digunakan pada upload
 		{
 			$jumlahStok = 1;
@@ -16,7 +21,7 @@
 		{
 			$jumlahStok = 0;
 		}
-		
+
 		$exe = mysql_query($sql_select);
 		while(mysql_fetch_array($exe))
 		{
@@ -24,11 +29,14 @@
 		}
 		return $jumlahStok;
 	}
-	
-	
+
+
 	// Fungsi untuk melihat semua daftar barang pada tabel
 	function lihatSemuaBarang($mode)		// $mode = tampil -> cuma lihat (statsitik), none -> ada aksinya (manage)
 	{
+		$itemPerPage = 25;
+		$offset = 0;
+
 		echo "
 		<table border=1px>
 			<thead>
@@ -40,7 +48,7 @@
 				<th>Deskripsi</th>
 				<th>Gambar</th>
 				<th>Harga</th>";
-				
+
 				if($mode === "tampil")
 				{
 					// Do nothing
@@ -49,9 +57,11 @@
 				{
 					echo "<th>Aksi</th>";
 				}
-				
+
 				echo "</thead>";
-				$queryBarang = "SELECT * FROM barang JOIN jenis ON barang.id_jenis = jenis.id_jenis Join merek ON barang.id_merek = merek.id_merek";
+				$queryBarang = "SELECT * FROM barang JOIN jenis ON barang.id_jenis = jenis.id_jenis
+												Join merek ON barang.id_merek = merek.id_merek ORDER BY barang.id_barang
+											 	LIMIT $itemPerPage OFFSET $offset";
 				$no = 1;
 				$exeBarang = mysql_query($queryBarang);
 				while($hasilBarang = mysql_fetch_array($exeBarang))
@@ -59,14 +69,14 @@
 					echo "
 							<tr>
 								<td>$no</td>
-								<td>$hasilBarang[id_barang]</td>
+								<td class='idBarang $no'>$hasilBarang[id_barang]</td>
 								<td>$hasilBarang[nama_barang]</td>
 								<td>$hasilBarang[nama_jenis]</td>
 								<td>$hasilBarang[nama_merek]</td>
 								<td>$hasilBarang[deskripsi]</td>
 								<td><img src='../$hasilBarang[path]' width=50px></td>
 								<td>$hasilBarang[harga]</td>";
-								
+
 								if($mode === "tampil")
 								{
 									// Do nothing
@@ -74,17 +84,19 @@
 								else if($mode === "manage")
 								{
 									echo "<td>
-											<a href='../admin/hapus.php?kode=$hasilBarang[id_barang]&syarat=2'>Hapus</a> | 
-											<a href='../ajax.php?id=$hasilBarang[id_barang]&syarat=2'>Edit</a>
+											<a href='../admin/hapus.php?kode=$hasilBarang[id_barang]&syarat=2'>Hapus</a> |
+											<a href='../admin/upload.php?id=$hasilBarang[id_barang]&syarat=edit' class='edit'>Edit</a>
 										 </td>";
-									
+
 								}
-								
+
 							echo "</tr>
 						 ";
 					$no++;
 				}
 		echo "</table>";
+		$page = ceil($no/$itemPerPage);
+		bottomNav($page, "all");
 	}
 
 	// Fungsi bottom nav (untuk menu navigasi pada catalog index.php)
@@ -93,8 +105,8 @@
 		$offsetnya = 0;
 		for($i = 1; $i <= $page; $i++)
 		{
-			echo "<a href='ajax.php?id=$id&syarat=1&offset=$offsetnya'>" . $i . "</a> ";
-			$offsetnya += 3;
+			echo "<a class='a' href='ajax.php?id=$id&syarat=1&offset=$offsetnya'>" . $i . "</a> ";
+			$offsetnya += 3;	// Ganti untuk ganti range offset
 		}
 	}
 ?>

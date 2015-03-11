@@ -5,23 +5,23 @@
 	</head>
 
 	<body>
-		<?php 
+		<?php
 			$notif = $_GET['notif'];
 			$sec = 2;
 			$header = "";
 			$pesan = "";
-				
-			if($notif == 1)	// Comment
+
+			if($notif == 1)	// Tambah Jenis
 			{
-				$lokasi = "contact";
+				$lokasi = "admin/manage";
 				$header = "<h2>Terimakasih</h2>";
-				$pesan = "<h4>Komentar anda telah tersimpan.</h4>";
+				$pesan = "<h4>Jenis barang baru telah berhasil ditambahkan</h4>";
 			}
-			else if($notif == 2)	// Berhasil menghapus comment dari database
+			else if($notif == 2)	// Sukses Update data
 			{
-				$lokasi = "admin/comment";
+				$lokasi = "admin/manage";
 				$header = "<h2>Selamat!</h2>";
-				$pesan = "<h4>Komentar telah dihapus dari database.</h4>";
+				$pesan = "<h4>Telah berhasil mengupdate data.</h4>";
 			}
 			else if($notif == 3)	// Sukses upload
 			{
@@ -36,7 +36,7 @@
 				$header = "<h2>Maaf</h2>";
 				$pesan = "	<h4>Gagal upload.</h4>
 							<h4>Beberapa solusi yang bisa anda coba :</h4>
-								
+
 							<h5><ul>
 								<li>File musik harus memiliki format .png atau .jpg.</li>
 								<li>File harus berukuran kurang dari 5mb.</li>
@@ -71,13 +71,19 @@
 							<h4>Barang telah berhasil dihapus dari database.</h4>
 						 ";
 			}
+			else if($notif == 8)
+			{
+				$lokasi = "admin/manage";
+				$header = "<h2>Terimakasih</h2>";
+				$pesan = "<h4>Merek barang baru telah berhasil ditambahkan</h4>";
+			}
 		?>
 		<div class="box effect7">
-			<?php 
+			<?php
 				echo $header;
 				echo $pesan;
 			?>
-			
+
 		</div>
 		<meta http-equiv="refresh" content="<?php echo $sec;?>;url=<?php echo $lokasi;?>.php"/>
 	</body>
