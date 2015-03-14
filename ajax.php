@@ -32,12 +32,6 @@
 				JOIN merek ON barang.id_merek = merek.id_merek
 				ORDER BY id_barang LIMIT $itemPerPage OFFSET $offset";
 			}
-			else
-			{
-				$queryGambar = "SELECT * FROM barang JOIN jenis ON barang.id_jenis = jenis.id_jenis
-				JOIN merek ON barang.id_merek = merek.id_merek WHERE barang.nama_barang LIKE '$value'
-				ORDER BY id_barang LIMIT $itemPerPage OFFSET $offset";
-			}
 			$exe2 = mysql_query($queryGambar);
 
 			while($hasilGambar = mysql_fetch_array($exe2))
@@ -94,7 +88,17 @@
 
 			// Menampilkan page (angka dibawah)
 			$page = ceil($totalItem/$itemPerPage);
-			bottomNav($page, $value);
+			bottomNav($page, $value, $itemPerPage);
 ?>
 
+<script src="js/jquery-2.1.3.min.js"></script>
 <script type="text/javascript" src="js/overlay.js"></script>
+<script>
+	$(document).ready(function(){
+		$('.a').click(function(event){
+			event.preventDefault();
+			var url = $(this).attr("href");
+			$('#ajax').load(url);
+		});
+	});
+</script>

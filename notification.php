@@ -34,7 +34,7 @@
 				$sec = 4;
 				$lokasi = "admin/upload";
 				$header = "<h2>Maaf</h2>";
-				$pesan = "	<h4>Gagal upload.</h4>
+				$pesan = "	<h4>Gagal!</h4>
 							<h4>Beberapa solusi yang bisa anda coba :</h4>
 
 							<h5><ul>

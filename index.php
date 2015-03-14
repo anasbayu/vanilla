@@ -13,39 +13,34 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
-		<form method="post">
-			<select name="jenisBarang" onchange="sendAjax(this.value, 0, 1)">
-				<option value="all">Jenis</option>
-				<?php
-					$query = "SELECT * FROM jenis";
-					$exe = mysql_query($query);
+		<select name="jenisBarang" onchange="sendAjax(this.value, 0, 1)">
+			<option value="all">Jenis</option>
+			<?php
+				$query = "SELECT * FROM jenis";
+				$exe = mysql_query($query);
 
-					while($hasil = mysql_fetch_array($exe))
-					{
-						echo "<option value=$hasil[0]>$hasil[1]</option>";
-					}
-				?>
-			</select>
+				while($hasil = mysql_fetch_array($exe))
+				{
+					echo "<option value=$hasil[0]>$hasil[1]</option>";
+				}
+			?>
+		</select>
 
-			<select name="merekBarang" onchange="sendAjax(this.value, 0, 2)">
-				<option value="all">Merek</option>
-				<?php
-					$query = "SELECT * FROM merek";
-					$exe = mysql_query($query);
+		<select name="merekBarang" onchange="sendAjax(this.value, 0, 2)">
+			<option value="all">Merek</option>
+			<?php
+				$query = "SELECT * FROM merek";
+				$exe = mysql_query($query);
 
-					while($hasil = mysql_fetch_array($exe))
-					{
-						echo "<option value=$hasil[0]>$hasil[1]</option>";
-					}
-				?>
-			</select>
+				while($hasil = mysql_fetch_array($exe))
+				{
+					echo "<option value=$hasil[0]>$hasil[1]</option>";
+				}
+			?>
+		</select>
 
-			<input type="text" id="searchInput" placeholder="Cari berdasar nama" />
-			<script>
-
-			</script>
-			<button onclick="sendAjax('',0,'search')">cari</button>
-		</form>
+		<input type="text" id="searchInput" placeholder="Cari berdasar nama"/>
+		<button onclick="search()">cari</button>
 
 		<div class="grid-container main-content" id="ajax"></div>
 	</body>
@@ -55,25 +50,13 @@
 <script>
 	function sendAjax(val, offset, syarat)
 	{
-		if(syarat == 'search')
-		{
-			var text = $('#searchInput').text();
-			$('#ajax').load("ajax.php?id=" + text + "&syarat=" + syarat + "&offset=" + offset);
-		}
-		else
-		{
-			$('#ajax').load("ajax.php?id=" + val + "&syarat=" + syarat + "&offset=" + offset);
-		}
+		$('#ajax').load("ajax.php?id=" + val + "&syarat=" + syarat + "&offset=" + offset);
+	}
+
+	function search()
+	{
+		var text = $('#searchInput').val();
+		$('#ajax').load("search.php?value=" + text);
 	}
 	sendAjax("all", 0, 1);	// Manggil saat dibuka halamanya.
-</script>
-
-<script>
-	$(document).ready(function(){
-		$('.a').click(function(event){
-			event.preventDefault();
-			alert('yuhuu');
-		});
-	});
-
 </script>

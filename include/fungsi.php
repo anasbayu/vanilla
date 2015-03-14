@@ -96,17 +96,17 @@
 				}
 		echo "</table>";
 		$page = ceil($no/$itemPerPage);
-		bottomNav($page, "all");
+		bottomNav($page, "all", $itemPerPage);		// Masih bug
 	}
 
 	// Fungsi bottom nav (untuk menu navigasi pada catalog index.php)
-	function bottomNav($page, $id)
+	function bottomNav($page, $id, $itemPerPage)
 	{
 		$offsetnya = 0;
 		for($i = 1; $i <= $page; $i++)
 		{
 			echo "<a class='a' href='ajax.php?id=$id&syarat=1&offset=$offsetnya'>" . $i . "</a> ";
-			$offsetnya += 3;	// Ganti untuk ganti range offset
+			$offsetnya += $itemPerPage;	// Ganti untuk ganti range offset
 		}
 	}
 ?>

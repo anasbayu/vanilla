@@ -88,8 +88,7 @@
 		$syaratNotif = 2;
 		$lokasi = "notification";
 
-		$idLama = $_GET['idLama'];
-		$idBarang = addslashes($_POST['id_barang']);
+		$id = $_POST['id_barang'];
 		$namaBarang = addslashes($_POST['nama_barang']);
 		$jenis = $_POST['jenis_barang'];
 		$merek = $_POST['merek_barang'];
@@ -99,8 +98,8 @@
 		$harga = addslashes($_POST['harga']);
 
 		// Perintah untuk memasukkan data dari form ke database (Path beluuuum)
-		$sql_masukin = "UPDATE barang SET id_barang = '$idBarang', id_jenis = '$jenis', nama_barang = '$namaBarang', id_merek = '$merek',
-						deskripsi = '$deskripsi', harga = '$harga', path = '$path' WHERE id_barang = '$idLama'";
+		$sql_masukin = "UPDATE barang SET id_jenis = '$jenis', nama_barang = '$namaBarang', id_merek = '$merek',
+						deskripsi = '$deskripsi', harga = '$harga', path = '$path' WHERE id_barang = '$id'";
 
 		mysql_query($sql_masukin) or die('Gagal masukin '.mysql_error());	// Insert tabel barang
 
@@ -133,11 +132,4 @@
 	}
 
 	header("location:$lokasi.php?notif=$syaratNotif");
-
-			/*
-			echo $_FILES["uploadMusic"]["name"] . "<br>";
-			echo $_FILES["uploadMusic"]["size"] . "<br>";
-			echo $_FILES["uploadMusic"]["type"] . "<br>";
-			echo $_FILES["uploadMusic"]["tmp_name"] . "<br>";
-			*/
 ?>

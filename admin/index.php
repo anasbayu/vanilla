@@ -1,3 +1,14 @@
+<?php
+	session_start();
+	if(isset($_SESSION['username']))
+	{
+		header("location:dashboard.php");
+	}
+	else
+	{
+		// Do nothing
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
