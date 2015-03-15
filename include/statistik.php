@@ -61,11 +61,4 @@
 <script src="../js/jquery-2.1.3.min.js"></script>
 <script>
 	$('#lihatBarang').load('../admin/lihatBarang.php');
-	$(document).ready(function(){
-		$('.a').click(function(event){
-			event.preventDefault();
-			var url = $(this).attr('href');
-			$('#lihatBarang').load(url);
-		});
-	});
 </script>

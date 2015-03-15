@@ -123,7 +123,12 @@
 		</form>
 		<script src="../js/jquery-2.1.3.min.js"></script>
 		<script>
-			$('#gambar').hide();
+			<?php
+				if($syarat === "edit")			// Hide kalo syarat == edit.
+				{
+					echo "$('#gambar').hide();";
+				}
+			?>
 			// Append input type= hidden dengan name='gambar'dan value='$valPath(tulisan gambar/ diilangin. jadi tinggal nama gambarnya aja)'
 			$("#gambar").removeAttr("required");
 

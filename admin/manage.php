@@ -10,7 +10,7 @@
 	}
 
 	include "../include/koneksi.php";
-	include "../include/fungsi.php";
+	//include "../include/fungsi.php";
 ?>
 
 <!DOCTYPE html>
@@ -25,9 +25,7 @@
 		<a href="upload.php">Upload</a>
 		<a href="manage.php">Manage</a>
 
-		<?php
-			lihatSemuaBarang('manage');
-		?>
+		<div id="manageArea"></div>
 
 		<div id="editAjax">disini area edit</div>
 		<div id="tambahMerek">disini area tambah merek</div>
@@ -36,12 +34,9 @@
 		<script src="../js/jquery-2.1.3.min.js"></script>
 		<script src="../js/overlay.js"></script>
 		<script>
+			$('#manageArea').load('manageBarang.php');
 			$(document).ready(function(){
-				$('.edit').click(function(event){
-					event.preventDefault();
-					var url = $(this).attr('href');
-					$('#editAjax').load(url);
-				});
+				
 
 				/*$('.hapus').click(function(event){
 					event.preventDefault();
