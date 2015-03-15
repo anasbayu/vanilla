@@ -42,14 +42,20 @@
 					var url = $(this).attr('href');
 					$('#editAjax').load(url);
 				});
-			});
 
-			$('#tambahMerek').click(function(){
-				$('#tambahMerek').load('tambahMerek.php');
-			});
+				/*$('.hapus').click(function(event){
+					event.preventDefault();
+					var url = $(this).attr('href');
+					$('#editAjax').load(url);
+				});*/
 
-			$('#tambahJenis').click(function(){
-				$('#tambahJenis').load('tambahJenis.php');
+				$('#tambahMerek').click(function(){
+					$('#tambahMerek').load('tambahMerek.php');
+				});
+
+				$('#tambahJenis').click(function(){
+					$('#tambahJenis').load('tambahJenis.php');
+				});
 			});
 		</script>
 	</body>

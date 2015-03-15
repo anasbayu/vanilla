@@ -71,11 +71,17 @@
 							<h4>Barang telah berhasil dihapus dari database.</h4>
 						 ";
 			}
-			else if($notif == 8)
+			else if($notif == 8)		// Tambah merek
 			{
 				$lokasi = "admin/manage";
 				$header = "<h2>Terimakasih</h2>";
 				$pesan = "<h4>Merek barang baru telah berhasil ditambahkan</h4>";
+			}
+			else if($notif == 9)
+			{
+				$lokasi = "admin/manage";
+				$header = "<h2>Maaf</h2>";
+				$pesan = "<h4>Gagal update data.</h4>";
 			}
 		?>
 		<div class="box effect7">

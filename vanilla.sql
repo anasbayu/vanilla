@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2015 at 02:41 PM
+-- Generation Time: Mar 15, 2015 at 02:39 AM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -44,15 +44,15 @@ CREATE TABLE IF NOT EXISTS `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_jenis`, `nama_barang`, `path`, `id_merek`, `deskripsi`, `harga`) VALUES
-('br001', 'jn001', 'lifebuoy merah', 'gambar/anu.jpg', 'mrk001', 'Deskripsi 1', '10.000'),
+('br001', 'jn001', 'lifebuoy merah tua', 'gambar/anu.jpg', 'mrk003', 'Deskripsi 1 aduh', '100.000'),
 ('br002', 'jn001', 'Dove Susu', 'gambar/b.jpg', 'mrk002', 'Deskripsi 2', '10.000'),
 ('br003', 'jn002', 'Ransel Fifa Keren', 'gambar/ransel.jpg', 'mrk003', 'Deskripsi 3', '10.000'),
-('br004', 'jn002', 'Tas Gahol', 'gambar/holebrain.jpg', 'mrk003', 'Deskripsi 4', '10.000'),
-('br005', 'jn001', 'aaaa', 'gambar/1.jpg', 'mrk001', 'dada', '10.000'),
+('br004', 'jn002', 'Baju Gahol', 'gambar/b001.005.jpg', 'mrk003', 'Deskripsi 4', '10.000'),
+('br005', 'jn001', 'aaaaggg', 'gambar/68.jpg', 'mrk003', 'dada', '10.000'),
 ('br007', 'jn001', 'barang 7', 'gambar/a moment before freedom.jpg', 'mrk002', 'dawd/./3.2/12.4/3fwef/./', '100.000'),
 ('br008', 'jn001', 'barang 8', 'gambar/1203.png', 'mrk001', 'dook9021i1298*(*&^*W(@*@', '5555'),
 ('br009', 'jn001', 'barang 9', 'gambar/Zephyrus.jpg', 'mrk003', 'jfiwo3fj', '899'),
-('br010', 'jn001', 'barang 10', 'gambar/when the earth meet the sky, bolivia.jpg', 'mrk001', '}{)_()*#(&^&%%$@||P@OI*&JDKJ', '787');
+('br011', 'jn001', 'barang palsu', 'gambar/aKg4DXb_700b_v2.jpg', 'mrk002', 'Barang bajakan', '5.000.000');
 
 -- --------------------------------------------------------
 
@@ -73,7 +73,8 @@ CREATE TABLE IF NOT EXISTS `jenis` (
 
 INSERT INTO `jenis` (`id_jenis`, `nama_jenis`, `stok`) VALUES
 ('jn001', 'alat mandi', 7),
-('jn002', 'tas', 2);
+('jn002', 'tas', 2),
+('jn003', 'Sepatu', 0);
 
 -- --------------------------------------------------------
 
@@ -115,7 +116,8 @@ CREATE TABLE IF NOT EXISTS `merek` (
 INSERT INTO `merek` (`id_merek`, `nama_merek`) VALUES
 ('mrk001', 'lifebuoy'),
 ('mrk002', 'Dove'),
-('mrk003', 'Fifa');
+('mrk003', 'Fifa'),
+('mrk004', 'Polo');
 
 --
 -- Constraints for dumped tables

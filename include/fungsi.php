@@ -84,7 +84,7 @@
 								else if($mode === "manage")
 								{
 									echo "<td>
-											<a href='../admin/hapus.php?kode=$hasilBarang[id_barang]&syarat=2'>Hapus</a> |
+											<a href='../admin/hapus.php?kode=$hasilBarang[id_barang]&syarat=2' class='hapus'>Hapus</a> |
 											<a href='../admin/upload.php?id=$hasilBarang[id_barang]&syarat=edit' class='edit'>Edit</a>
 										 </td>";
 

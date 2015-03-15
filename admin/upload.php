@@ -53,7 +53,9 @@
 			<?php 			// Munculkan id_barang ketika upload dan sembunyikan ketika edit.
 				if($syarat == "edit")
 				{
-
+			?>
+					<input type="hidden" name="id_barang" id="id_barang" placeholder="id barang" maxlength="7" value="<?php echo $valId ?>"/><br>
+			<?php
 				}
 				else
 				{
@@ -114,6 +116,8 @@
 				}
 					// Kalo $syarat == edit, nanti di hide sama jquery
 					echo "<input class='file' type='file' name='gambar' id='gambar' required/><br>";
+					// Input hidden untuk menyimpan path file lama.
+					echo "<input type='hidden' name='pathLama' id='pathLama' value='$valPath' /><br>";
 			?>
 			<button type="submit" name="submit" id="submit"><?=$header ?></button>
 		</form>
@@ -125,7 +129,7 @@
 
 			$('#ganti').click(function(){
 				$('#gambar').show();						// Show browse
-				$("#gambar").attr("required", true)		// menambah atribut, bug				
+				$("#gambar").attr("required", true)		// menambah atribut, bug
 				$('#gambarShow').hide(1000);		// Hide gambar thumbnail (preview)
 			});
 		</script>
