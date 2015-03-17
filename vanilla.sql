@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2015 at 08:54 AM
+-- Generation Time: Mar 17, 2015 at 09:31 AM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -44,13 +44,11 @@ CREATE TABLE IF NOT EXISTS `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_jenis`, `nama_barang`, `path`, `id_merek`, `deskripsi`, `harga`) VALUES
-('br001', 'jn001', 'lifebuoy merah tua', 'gambar/anu.jpg', 'mrk003', 'Deskripsi 1 aduh', '100.000'),
-('br002', 'jn001', 'Dove Susu', 'gambar/b.jpg', 'mrk002', 'Deskripsi 2', '10.000'),
-('br003', 'jn002', 'Ransel Fifa Keren', 'gambar/ransel.jpg', 'mrk003', 'Deskripsi 3', '10.000'),
-('br004', 'jn002', 'Baju Gahol', 'gambar/b001.005.jpg', 'mrk003', 'Deskripsi 4', '10.000'),
-('br005', 'jn001', 'aaaaggg', 'gambar/68.jpg', 'mrk003', 'dada', '10.000'),
+('br001', 'jn001', 'lifebuoy merah tua', 'gambar/Ahri LOL.jpg', 'mrk003', 'Deskripsi 1 aduh', '100.000'),
+('br002', 'jn003', 'barang kedua', 'gambar/connection.jpg', 'mrk003', 'Serigala jadi jadian!', '1.000.000'),
+('br003', 'jn003', 'barang ketiga', 'gambar/Wheres the milk.jpg', 'mrk001', 'barang keren', '100'),
+('br004', 'jn001', 'Barang 4', 'gambar/Snow White.jpg', 'mrk002', 'barang 4 yang keren abies 29918419048019-[0ejimkjc983&Y@(*$U@)JQ*@(HFJ@?>@P$@)!!~', '5.000'),
 ('br007', 'jn003', 'Tank top gokil', 'gambar/bonjour.jpg', 'mrk004', 'Tank Top hijau gokil keren abieees', '10.000'),
-('br008', 'jn001', 'barang 8', 'gambar/1203.png', 'mrk001', 'dook9021i1298*(*&^*W(@*@', '5555'),
 ('br009', 'jn001', 'barang 9', 'gambar/Zephyrus.jpg', 'mrk003', 'jfiwo3fj', '899'),
 ('br011', 'jn001', 'barang palsu', 'gambar/aKg4DXb_700b_v2.jpg', 'mrk002', 'Barang bajakan', '5.000.000');
 
@@ -72,9 +70,9 @@ CREATE TABLE IF NOT EXISTS `jenis` (
 --
 
 INSERT INTO `jenis` (`id_jenis`, `nama_jenis`, `stok`) VALUES
-('jn001', 'alat mandi', 6),
-('jn002', 'tas', 2),
-('jn003', 'Sepatu', 1);
+('jn001', 'alat mandi', 4),
+('jn002', 'tas', 0),
+('jn003', 'Sepatu', 3);
 
 -- --------------------------------------------------------
 
